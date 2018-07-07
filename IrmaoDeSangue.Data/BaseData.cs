@@ -18,6 +18,8 @@ namespace IrmaoDeSangue.Data
 
         }
 
+        private static ISession _session;
+
         private static ISessionFactory _sessionFactory;
 
         public static ISessionFactory SessionFactory
@@ -40,7 +42,12 @@ namespace IrmaoDeSangue.Data
 
         public static ISession GetSession()
         {
-            return SessionFactory.OpenSession();
+            if (_session == null || _session.Connection.State != System.Data.ConnectionState.Open)
+            { 
+                _session = SessionFactory.OpenSession();
+            }
+
+            return _session;
         }
 
         public void Salvar<T>(T objeto) where T : BaseEntities

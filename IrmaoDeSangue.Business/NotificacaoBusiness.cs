@@ -16,6 +16,7 @@ namespace IrmaoDeSangue.IBusiness
 
         public NotificacaoBusiness()
         {
+            _notificacaoDoacaoData = new NotificacaoDoacaoData();
             _emailNotificacaoBusiness = new EmailNotificacaoBusiness();
         }
 

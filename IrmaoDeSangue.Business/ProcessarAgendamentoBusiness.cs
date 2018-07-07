@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace IrmaoDeSangue.Business
 {
@@ -21,6 +22,7 @@ namespace IrmaoDeSangue.Business
             _agendamentoData = new AgendamentoData();
             _doadoresBusiness = new DoadorBusiness();
             _confimacaoDoacoesData = new ConfirmacaoDoacaoData();
+            _notificiacaoBusiness = new NotificacaoBusiness();
         }
 
         public void Processar()
@@ -34,47 +36,57 @@ namespace IrmaoDeSangue.Business
 
         private void ProcessarAgendamento(AgendamentoEntitie agendamento)
         {
-            agendamento.StatusProcessamento = (int)Entities.Enumeradores.StatusProcessamentoEnum.Processando;
-            
-            _agendamentoData.Salvar(agendamento);
-
-            _doadoresBusiness.ExecutaRegraDoadorInapitoPermanente();
-
-            var listaPossiveisDoadores = _doadoresBusiness.RecuperaPossiveisDoadores();
-            var listaDoadores = new List<DoadorEntitie>();
-
-            DateTime periodoFinal = agendamento.Data;
-            DateTime periodoInicial = agendamento.Data.AddYears(-1);
-
-            listaPossiveisDoadores.ToList().ForEach(doador => 
+            using (var transation = new TransactionScope(TransactionScopeOption.Required))
             {
-                if (IsDoacaoValidaNoPeriodo(periodoInicial, periodoFinal, doador))
-                {
-                    listaDoadores.Add(doador);
-                }
-            });
+                agendamento.StatusProcessamento = (int)Entities.Enumeradores.StatusProcessamentoEnum.Processando;
 
-            listaDoadores = listaDoadores.OrderBy(x => x.QuantidadeDoacoes).ToList();
-            listaDoadores = listaDoadores.Take(agendamento.MaximoDoadores).ToList();
+                _agendamentoData.Salvar(agendamento);
 
-            listaDoadores.ForEach(doadorSelecionado => 
+                _doadoresBusiness.ExecutaRegraDoadorInapitoPermanente();
+
+                transation.Complete();
+            }
+
+            using (var transation = new TransactionScope(TransactionScopeOption.Required))
             {
-                var notificacao = new NotificacaoDoacaoEntitie
+                var listaPossiveisDoadores = _doadoresBusiness.RecuperaPossiveisDoadores();
+                var listaDoadores = new List<DoadorEntitie>();
+
+                DateTime periodoFinal = agendamento.Data;
+                DateTime periodoInicial = agendamento.Data.AddYears(-1);
+
+                listaPossiveisDoadores.ToList().ForEach(doador =>
                 {
-                    Confirmado = false,
-                    DataNotificacao = DateTime.Now,                    
-                    Doador = doadorSelecionado,
-                    Agendamento = agendamento
-                };
+                    if (IsDoacaoValidaNoPeriodo(periodoInicial, periodoFinal, doador))
+                    {
+                        listaDoadores.Add(doador);
+                    }
+                });
 
-                _notificiacaoBusiness.Notificar(notificacao);                
-            });
+                listaDoadores = listaDoadores.OrderBy(x => x.QuantidadeDoacoes).ToList();
+                listaDoadores = listaDoadores.Take(agendamento.MaximoDoadores).ToList();
 
-            agendamento.StatusProcessamento = (int)Entities.Enumeradores.StatusProcessamentoEnum.Processado;
-            
-            _agendamentoData.Salvar(agendamento);
+                listaDoadores.ForEach(doadorSelecionado =>
+                {
+                    var notificacao = new NotificacaoDoacaoEntitie
+                    {
+                        Confirmado = false,
+                        DataNotificacao = DateTime.Now,
+                        Doador = doadorSelecionado,
+                        Agendamento = agendamento
+                    };
+
+                    _notificiacaoBusiness.Notificar(notificacao);
+                });
+
+                agendamento.StatusProcessamento = (int)Entities.Enumeradores.StatusProcessamentoEnum.Processado;
+
+                _agendamentoData.Salvar(agendamento);
+
+                transation.Complete();
+            }
         }
-
+                
         private bool IsDoacaoValidaNoPeriodo(DateTime periodoInicial, DateTime periodoFinal, DoadorEntitie doador)
         {
             bool retorno = true;

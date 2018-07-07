@@ -10,6 +10,6 @@ namespace IrmaoDeSangue.Entities
     {
         public virtual int Codigo { get; set; }
 
-        public virtual string Desricao { get; set; }
+        public virtual string Descricao { get; set; }
     }
 }

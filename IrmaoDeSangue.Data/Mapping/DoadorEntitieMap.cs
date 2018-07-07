@@ -16,7 +16,7 @@ namespace IrmaoDeSangue.Data.Mapping
             Id(item => item.Codigo)
                .Column("codigo");
 
-            Map(item => item.Desricao)
+            Map(item => item.Descricao)
                 .Column("nome_completo")
                 .Not.Nullable();
 
@@ -53,8 +53,7 @@ namespace IrmaoDeSangue.Data.Mapping
 
             HasMany(quadra => quadra.Doacoes)
                 .KeyColumn("codigo")
-                .Inverse()
-                .AsSet();
+                .Inverse();
         }
     }
 }
