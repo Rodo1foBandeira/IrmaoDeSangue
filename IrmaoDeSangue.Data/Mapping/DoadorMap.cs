@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IrmaoDeSangue.Data
+namespace IrmaoDeSangue.Data.Mapping
 {
-    public class Class1
+    public class DoadorMap
     {
+
     }
 }
