@@ -1,3 +1,32 @@
 ﻿@{
-    ViewBag.Title = "Questionario";
+    ViewBag.Title = "Questionário";
 }
+
+<h2>Questionário</h2>
+    <table class="table table-responsive"> 
+        <thead>
+            <tr>
+                <th>Descrição</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+@foreach (var item in Model)
+{
+            <tr>
+                <td>@item.Descricao</td>
+                <td>   
+                    <div class="btn-group">
+                        <label style="font-size: 1em "><input type="radio" style="width:25px" name="Questionario.resposta[@item.Codigo]" value="true">Sim</label>
+                        <label style="font-size: 1em "><input type="radio" style="width:25px" name="Questionario.resposta[@item.Codigo]" value="false">Não</label>
+                    </div>
+                </td>
+            </tr>
+}
+        </tbody>
+    </table>
+
+<div>
+    <button type="button" class="btn btn-outline-success" style="float: right">Confirmar</button>
+</div>
