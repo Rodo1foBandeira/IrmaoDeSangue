@@ -5,6 +5,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrmaoDeSangue.Service", "Ir
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrmaoDeSangue.MVC", "IrmaoDeSangue.MVC\IrmaoDeSangue.MVC.csproj", "{AD02C526-A5C8-478B-B794-D22C4871EAE5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrmaoDeSangue.Data", "IrmaoDeSangue.Data\IrmaoDeSangue.Data.csproj", "{FA2DFC4A-0E3E-4687-8570-D4705B1573DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{CDC4F199-18D4-4068-804A-E1F9212DCDC5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Services", "1 - Services", "{903CA1B2-F2BA-404F-96F6-A3F54A41451F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Business", "2 - Business", "{6F36FB2B-4D9A-430F-B2B5-D425E8C3CCAF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Entities", "3 - Entities", "{B493C961-FCB3-414A-9EBA-DBF3F4129076}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Data", "4 - Data", "{4DA011EF-9B7A-47F3-95A7-1F3CF98AE973}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,8 +31,17 @@ Global
 		{AD02C526-A5C8-478B-B794-D22C4871EAE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD02C526-A5C8-478B-B794-D22C4871EAE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD02C526-A5C8-478B-B794-D22C4871EAE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA2DFC4A-0E3E-4687-8570-D4705B1573DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA2DFC4A-0E3E-4687-8570-D4705B1573DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA2DFC4A-0E3E-4687-8570-D4705B1573DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA2DFC4A-0E3E-4687-8570-D4705B1573DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AD02C526-A5C8-478B-B794-D22C4871EAE5} = {CDC4F199-18D4-4068-804A-E1F9212DCDC5}
+		{0537803D-0ED4-49D9-8449-0DA2B6F8662E} = {903CA1B2-F2BA-404F-96F6-A3F54A41451F}
+		{FA2DFC4A-0E3E-4687-8570-D4705B1573DE} = {4DA011EF-9B7A-47F3-95A7-1F3CF98AE973}
 	EndGlobalSection
 EndGlobal
