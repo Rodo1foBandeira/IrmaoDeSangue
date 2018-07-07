@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>c83b3594-8ae5-4843-90aa-74b7955e5bf6</ProjectGuid>
+    <ProjectGuid>{C3D27573-9705-4D1D-BF39-8297D3703631}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>IrmaoDeSangue.Scheduler</RootNamespace>

@@ -10,29 +10,28 @@ namespace IrmaoDeSangue.Data
 {
     public class DoadorData : BaseData
     {
-        public DoadorData(ISession session)
-            : base(session)
-        {
+        public DoadorData()
+        { 
 
         }
 
-        public IList<Doador> RecuperaPossiveisDoadores()
+        public IList<DoadorEntitie> RecuperaDoadoresIndefinidos()
         {
-            var lista = new List<Doador>();
+            var lista = new List<DoadorEntitie>();
 
             return lista;
         }
 
-        public void Salvar(Doador doador)
+        public IList<DoadorEntitie> RecuperaPossiveisDoadores()
         {
-            if (doador.Codigo > 0)
-            {
-                Update(doador);
-            }
-            else
-            {
-                Save(doador);
-            }
+            var lista = new List<DoadorEntitie>();
+
+            return lista;
+        }
+
+        public void Salvar(DoadorEntitie doador)
+        {
+            
         }
     }
 }
