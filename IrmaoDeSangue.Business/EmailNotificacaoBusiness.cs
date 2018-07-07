@@ -23,7 +23,7 @@ namespace IrmaoDeSangue.Business
         {
             StringBuilder sbCorpoEmail = new StringBuilder();
 
-            sbCorpoEmail.AppendLine("Prezado " + notificacao.Doador.Desricao + ",");
+            sbCorpoEmail.AppendLine("Prezado " + notificacao.Doador.Descricao + ",");
             sbCorpoEmail.AppendLine("");
             sbCorpoEmail.AppendLine("Você foi selecionado para participação da CAMPANHA IRMÃO DE SANGUE, por favor confirmar presença");
             sbCorpoEmail.AppendLine("No dia dd/mm/aaaa - das 07:00-11:30 e 14:00-16:00, no local:");

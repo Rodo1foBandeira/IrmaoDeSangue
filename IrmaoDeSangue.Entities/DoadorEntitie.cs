@@ -21,7 +21,7 @@ namespace IrmaoDeSangue.Entities
 
         public virtual DateTime? UltimaDoacao { get; set; }
 
-        public virtual IList<ConfirmacaoDoacaoEntitie> Doacoes { get; set; }
+        public virtual ICollection<ConfirmacaoDoacaoEntitie> Doacoes { get; set; }
 
         public virtual int QuantidadeDoacoes { get; set; }
     }
