@@ -14,12 +14,12 @@ namespace IrmaoDeSangue.Business
 
         }
 
-        public void EnviarEmail(NotficacaoDoacaoEntitie notificacao)
+        public void EnviarEmail(NotificacaoDoacaoEntitie notificacao)
         {
 
         }
 
-        private string GetCorpoEmailNotificacao(NotficacaoDoacaoEntitie notificacao)
+        private string GetCorpoEmailNotificacao(NotificacaoDoacaoEntitie notificacao)
         {
             StringBuilder sbCorpoEmail = new StringBuilder();
 

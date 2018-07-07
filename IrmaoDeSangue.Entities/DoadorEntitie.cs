@@ -20,5 +20,9 @@ namespace IrmaoDeSangue.Entities
         public float Peso { get; set; }
 
         public DateTime? UltimaDoacao { get; set; }
+
+        public IList<ConfirmacaoDoacaoEntitie> Doacoes { get; set; }
+
+        public int QuantidadeDoacoes { get; set; }
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IrmaoDeSangue.Data.Mapping
+namespace IrmaoDeSangue.Entities
 {
-    public class DoadorMap
+    public class TipoPessoaEntitie : BaseEntities
     {
 
     }
