@@ -6,7 +6,7 @@
 
 <h2>Questionario</h2>
 
-@using (Html.BeginForm("ValidarRespostas", "Questionario", FormMethod.Post, new { @id = "questionario"}))
+@using (Html.BeginForm("ValidarRespostas", "Questionario"))
 {
     @Html.HiddenFor(m => m.Pessoa.Codigo);
     <table class="table table-responsive"> 
@@ -35,7 +35,7 @@
         </tbody>
     </table>
 
-    <div>
+    <div class="pull-rigth">
         <button type="submit" class="btn btn-primary">Confirmar</button>
         <button type="button" class="btn btn-danger">Cancelar</button>
     </div>

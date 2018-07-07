@@ -9,5 +9,7 @@ namespace IrmaoDeSangue.MVC.Models
     {
         public int Codigo { get; set; }
         public string NomeCompleto { get; set; }
+        public bool Aprovado { get; set; }
+        public string Alerta { get; set; }
     }
 }

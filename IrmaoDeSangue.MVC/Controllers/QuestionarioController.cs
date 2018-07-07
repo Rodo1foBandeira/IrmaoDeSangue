@@ -32,9 +32,9 @@ namespace IrmaoDeSangue.MVC.Controllers
 
         public ActionResult ValidarRespostas(QuestionarioModel questionario)
         {
-
-            return View();
+            questionario.Pessoa.NomeCompleto = "Fulano de tal";
+            questionario.Pessoa.Aprovado = true;
+            return View("~/Views/Questionario/Resultado.cshtml", questionario.Pessoa);            
         }
-
     }
 }
