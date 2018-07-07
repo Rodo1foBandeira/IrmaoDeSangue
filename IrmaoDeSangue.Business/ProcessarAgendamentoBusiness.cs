@@ -73,7 +73,8 @@ namespace IrmaoDeSangue.Business
                         Confirmado = false,
                         DataNotificacao = DateTime.Now,
                         Doador = doadorSelecionado,
-                        Agendamento = agendamento
+                        Agendamento = agendamento,
+                        ChaveAutenticacao = Guid.NewGuid().ToString()
                     };
 
                     _notificiacaoBusiness.Notificar(notificacao);

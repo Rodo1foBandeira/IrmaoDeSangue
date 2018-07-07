@@ -16,7 +16,7 @@ namespace IrmaoDeSangue.Business
 
         public void EnviarEmail(NotificacaoDoacaoEntitie notificacao)
         {
-
+            string corpoEmail = GetCorpoEmailNotificacao(notificacao);
         }
 
         private string GetCorpoEmailNotificacao(NotificacaoDoacaoEntitie notificacao)

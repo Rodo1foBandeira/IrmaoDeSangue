@@ -36,11 +36,11 @@ namespace IrmaoDeSangue.Data.Mapping
 
             Map(item => item.Confirmado)
                 .Column("confirmado")
-                .Not.Nullable();
+                .Nullable();
 
             Map(item => item.DataConfirmacao)
                 .Column("data_confirmacao")
-                .Not.Nullable();
+                .Nullable();
         }
     }
 }
