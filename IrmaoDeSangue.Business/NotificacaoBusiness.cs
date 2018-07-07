@@ -1,4 +1,5 @@
 ﻿using IrmaoDeSangue.Business;
+using IrmaoDeSangue.Data;
 using IrmaoDeSangue.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace IrmaoDeSangue.IBusiness
 {
     public class NotificacaoBusiness
     {
+        protected NotificacaoDoacaoData _notificacaoDoacaoData;
         protected EmailNotificacaoBusiness _emailNotificacaoBusiness;
 
         public NotificacaoBusiness()
@@ -26,7 +28,7 @@ namespace IrmaoDeSangue.IBusiness
 
         private void Salvar(NotificacaoDoacaoEntitie notificacao)
         {
-
+            _notificacaoDoacaoData.Salvar(notificacao);
         }
     }
 }

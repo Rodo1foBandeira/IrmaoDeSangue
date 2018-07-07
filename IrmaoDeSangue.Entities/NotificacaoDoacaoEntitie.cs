@@ -8,16 +8,16 @@ namespace IrmaoDeSangue.Entities
 {
     public class NotificacaoDoacaoEntitie : BaseEntities
     {
-        public AgendamentoEntitie Agendamento { get; set; }
+        public virtual AgendamentoEntitie Agendamento { get; set; }
 
-        public DoadorEntitie Doador { get; set; }
+        public virtual DoadorEntitie Doador { get; set; }
 
-        public DateTime DataNotificacao { get; set; }
+        public virtual DateTime DataNotificacao { get; set; }
 
-        public string ChaveAutenticacao { get; set; }
+        public virtual string ChaveAutenticacao { get; set; }
 
-        public bool Confirmado { get; set; }
+        public virtual bool Confirmado { get; set; }
 
-        public DateTime? DataConfirmacao { get; set; }
+        public virtual DateTime? DataConfirmacao { get; set; }
     }
 }

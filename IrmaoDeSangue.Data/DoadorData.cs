@@ -1,5 +1,7 @@
 ﻿using IrmaoDeSangue.Entities;
 using NHibernate;
+using NHibernate.Criterion;
+using NHibernate.SqlCommand;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,16 +19,19 @@ namespace IrmaoDeSangue.Data
 
         public IList<DoadorEntitie> RecuperaDoadoresIndefinidos()
         {
-            var lista = new List<DoadorEntitie>();
+            var criteria = GetSession().CreateCriteria<DoadorEntitie>("DoadorEntitie");
+            criteria.Add(Restrictions.Eq("DoadorEntitie.AptoParaDoacao", null));
 
-            return lista;
+            return criteria.List<DoadorEntitie>();
         }
 
         public IList<DoadorEntitie> RecuperaPossiveisDoadores()
         {
-            var lista = new List<DoadorEntitie>();
+            var criteria = GetSession().CreateCriteria<DoadorEntitie>("DoadorEntitie");
+            criteria.CreateCriteria("DoadorEntitie.Doacoes", "Doacoes", JoinType.LeftOuterJoin);
+            criteria.Add(Restrictions.Eq("DoadorEntitie.AptoParaDoacao", 1));
 
-            return lista;
+            return criteria.List<DoadorEntitie>();
         }
 
         public void Salvar(DoadorEntitie doador)

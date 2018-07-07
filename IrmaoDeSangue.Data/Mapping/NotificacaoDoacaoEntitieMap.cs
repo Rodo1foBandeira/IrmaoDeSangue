@@ -26,19 +26,19 @@ namespace IrmaoDeSangue.Data.Mapping
                 .Nullable()
                 .Not.LazyLoad();
 
-            References(item => item.DataNotificacao)
+            Map(item => item.DataNotificacao)
                 .Column("data_notificacao")
                 .Not.Nullable();
 
-            References(item => item.ChaveAutenticacao)
+            Map(item => item.ChaveAutenticacao)
                 .Column("chave_autenticacao")
                 .Not.Nullable();
 
-            References(item => item.Confirmado)
+            Map(item => item.Confirmado)
                 .Column("confirmado")
                 .Not.Nullable();
 
-            References(item => item.DataConfirmacao)
+            Map(item => item.DataConfirmacao)
                 .Column("data_confirmacao")
                 .Not.Nullable();
         }

@@ -8,12 +8,12 @@ namespace IrmaoDeSangue.Entities
 {
     public class ConfirmacaoDoacaoEntitie : BaseEntities
     {
-        public NotificacaoDoacaoEntitie Notificacao { get; set; }
+        public virtual NotificacaoDoacaoEntitie Notificacao { get; set; }
 
-        public DateTime DataEnvioSolicitacaoConfirmacao { get; set; }
+        public virtual DateTime DataEnvioSolicitacaoConfirmacao { get; set; }
 
-        public DateTime DataConfirmacaoDoacao { get; set; }
+        public virtual DateTime DataConfirmacaoDoacao { get; set; }
 
-        public bool? DoacaoRealizada { get; set; }
+        public virtual bool? DoacaoRealizada { get; set; }
     }
 }

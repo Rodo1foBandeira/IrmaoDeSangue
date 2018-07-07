@@ -14,14 +14,14 @@ namespace IrmaoDeSangue.Entities
 
         }
 
-        public DateTime DataNascimento { get; set; }
+        public virtual DateTime DataNascimento { get; set; }
 
-        public SexoPessoaEnum Sexo { get; set; }
+        public virtual SexoPessoaEnum Sexo { get; set; }
 
-        public string EstadoCivil { get; set; }
+        public virtual string EstadoCivil { get; set; }
 
-        public string Email { get; set; }
+        public virtual string Email { get; set; }
 
-        public TipoPessoaEntitie TipoPessoa { get; set; }
+        public virtual TipoPessoaEntitie TipoPessoa { get; set; }
     }
 }

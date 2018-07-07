@@ -29,7 +29,7 @@ namespace IrmaoDeSangue.Business
 
         public void Atualiza(AgendamentoEntitie agendamentoEntitie)
         {
-            _agendamentoData.Atualiza(agendamentoEntitie);
+            _agendamentoData.Salvar(agendamentoEntitie);
         }
     }
 }

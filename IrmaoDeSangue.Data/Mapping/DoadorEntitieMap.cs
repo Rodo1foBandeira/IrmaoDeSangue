@@ -16,31 +16,31 @@ namespace IrmaoDeSangue.Data.Mapping
             Id(item => item.Codigo)
                .Column("codigo");
 
-            References(item => item.Desricao)
+            Map(item => item.Desricao)
                 .Column("nome_completo")
                 .Not.Nullable();
 
-            References(item => item.DataNascimento)
+            Map(item => item.DataNascimento)
                 .Column("data_nascimento")
                 .Not.Nullable();
 
-            References(item => item.Sexo)
+            Map(item => item.Sexo)
                 .Column("sexo")
                 .Not.Nullable();
 
-            References(item => item.EstadoCivil)
+            Map(item => item.EstadoCivil)
                 .Column("estado_civil")
                 .Not.Nullable();
 
-            References(item => item.TipoSanguinio)
-                .Column("tipo_sanguinio")
+            Map(item => item.TipoSanguinio)
+                .Column("tipo_sanguineo")
                 .Not.Nullable();
 
-            References(item => item.Email)
+            Map(item => item.Email)
                 .Column("email")
                 .Not.Nullable();
 
-            References(item => item.AptoParaDoacao)
+            Map(item => item.AptoParaDoacao)
                 .Column("apto_doacao");
 
             References(item => item.TipoPessoa)
@@ -48,8 +48,13 @@ namespace IrmaoDeSangue.Data.Mapping
                 .Nullable()
                 .Not.LazyLoad();
 
-            References(item => item.Peso)
+            Map(item => item.Peso)
                 .Column("peso");
+
+            HasMany(quadra => quadra.Doacoes)
+                .KeyColumn("codigo")
+                .Inverse()
+                .AsSet();
         }
     }
 }

@@ -8,14 +8,14 @@ namespace IrmaoDeSangue.Entities
 {
     public class HemonucleoEntitie : BaseEntities
     {
-        public string Atendimento { get; set; }
+        public virtual string Atendimento { get; set; }
 
-        public string Responsavel { get; set; }
+        public virtual string Responsavel { get; set; }
 
-        public string Telefone { get; set; }
+        public virtual string Telefone { get; set; }
 
-        public string Email { get; set; }
+        public virtual string Email { get; set; }
 
-        public string Site { get; set; }
+        public virtual string Site { get; set; }
     }
 }

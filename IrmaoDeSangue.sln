@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrmaoDeSangue.Scheduler", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrmaoDeSangue.Business", "IrmaoDeSangue.Business\IrmaoDeSangue.Business.csproj", "{683C98D4-3A90-4582-A78C-DEE842FA0B30}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrmaoDeSangue.UnitTest", "IrmaoDeSangue.UnitTest\IrmaoDeSangue.UnitTest.csproj", "{CCF77DD6-C132-4FD8-89FE-C2DECD5FFD5E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{683C98D4-3A90-4582-A78C-DEE842FA0B30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{683C98D4-3A90-4582-A78C-DEE842FA0B30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{683C98D4-3A90-4582-A78C-DEE842FA0B30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCF77DD6-C132-4FD8-89FE-C2DECD5FFD5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCF77DD6-C132-4FD8-89FE-C2DECD5FFD5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCF77DD6-C132-4FD8-89FE-C2DECD5FFD5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCF77DD6-C132-4FD8-89FE-C2DECD5FFD5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,5 +72,6 @@ Global
 		{1295CDC1-1656-4F85-B69E-04D2549BDD6D} = {B493C961-FCB3-414A-9EBA-DBF3F4129076}
 		{FA2DFC4A-0E3E-4687-8570-D4705B1573DE} = {4DA011EF-9B7A-47F3-95A7-1F3CF98AE973}
 		{C3D27573-9705-4D1D-BF39-8297D3703631} = {BF84607B-F3D3-475A-8EE9-9FEA46F80A42}
+		{CCF77DD6-C132-4FD8-89FE-C2DECD5FFD5E} = {BF84607B-F3D3-475A-8EE9-9FEA46F80A42}
 	EndGlobalSection
 EndGlobal

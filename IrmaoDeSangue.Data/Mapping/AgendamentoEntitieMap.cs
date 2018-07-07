@@ -16,7 +16,7 @@ namespace IrmaoDeSangue.Data.Mapping
             Id(item => item.Codigo)
                .Column("codigo");
 
-            References(item => item.Data)
+            Map(item => item.Data)
                 .Column("data")
                 .Not.Nullable();
 
@@ -25,11 +25,11 @@ namespace IrmaoDeSangue.Data.Mapping
                 .Not.Nullable()
                 .Not.LazyLoad();
 
-            References(item => item.StatusProcessamento)
+            Map(item => item.StatusProcessamento)
                 .Column("status_processamento")
                 .Not.Nullable();
 
-            References(item => item.MaximoDoadores)
+            Map(item => item.MaximoDoadores)
                 .Column("maximo_doadores")
                 .Not.Nullable();
         }

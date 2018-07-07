@@ -8,6 +8,6 @@ namespace IrmaoDeSangue.Entities
 {
     public class PerguntaEntitie : BaseEntities
     {
-        public Enumeradores.TipoPerguntaEnum TipoPergunta { get; set; }
+        public virtual Enumeradores.TipoPerguntaEnum TipoPergunta { get; set; }
     }
 }

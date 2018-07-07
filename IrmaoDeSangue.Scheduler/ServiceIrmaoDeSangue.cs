@@ -10,21 +10,30 @@ using System.Threading.Tasks;
 
 namespace IrmaoDeSangue.Scheduler
 {
-    public partial class Service1 : ServiceBase
+    public partial class ServiceIrmaoDeSangue : ServiceBase
     {
-        public Service1()
+        public ServiceIrmaoDeSangue()
         {
             InitializeComponent();
         }
 
         protected override void OnStart(string[] args)
-        {
-
+        {            
         }
 
         protected override void OnStop()
         {
+           
+        }
 
+        public void Iniciar()
+        {
+            OnStart(new string[0]);
+        }
+
+        public void Parar()
+        {
+            OnStop();
         }
     }
 }

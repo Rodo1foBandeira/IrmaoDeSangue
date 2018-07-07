@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace IrmaoDeSangue.Entities.Enumeradores
 {
     public enum StatusProcessamentoEnum
-    {
+    {        
         Pendente = 1,
         Processando = 2,
         Processado = 3

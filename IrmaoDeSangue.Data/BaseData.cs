@@ -1,4 +1,5 @@
 ﻿using FluentNHibernate.Cfg;
+using IrmaoDeSangue.Entities;
 using NHibernate;
 using System;
 using System.Collections.Generic;
@@ -41,5 +42,18 @@ namespace IrmaoDeSangue.Data
         {
             return SessionFactory.OpenSession();
         }
+
+        public void Salvar<T>(T objeto) where T : BaseEntities
+        {
+            if (objeto.Codigo > 0)
+            {
+                var evict = GetSession().Load<T>(objeto.Codigo);
+                if (evict != null)
+                    GetSession().Evict(evict);
+            }
+
+            GetSession().SaveOrUpdate(objeto);
+        }
+
     }
 }

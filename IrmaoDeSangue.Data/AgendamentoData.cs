@@ -1,4 +1,6 @@
 ﻿using IrmaoDeSangue.Entities;
+using IrmaoDeSangue.Entities.Enumeradores;
+using NHibernate.Criterion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,14 +18,10 @@ namespace IrmaoDeSangue.Data
 
         public IList<AgendamentoEntitie> RecuperaAgendamentosPendentes()
         {
-            var lista = new List<AgendamentoEntitie>();
+            var criteria = GetSession().CreateCriteria<AgendamentoEntitie>("AgendamentoEntitie");
+            criteria.Add(Restrictions.Eq("AgendamentoEntitie.StatusProcessamento", (int)StatusProcessamentoEnum.Pendente));
 
-            return lista;
-        }
-
-        public void Atualiza(AgendamentoEntitie agendamentoEntitie)
-        { 
-
+            return criteria.List<AgendamentoEntitie>();
         }
     }
 }

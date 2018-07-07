@@ -16,11 +16,11 @@ namespace IrmaoDeSangue.Data.Mapping
             Id(item => item.Codigo)
                .Column("codigo");
 
-            References(item => item.Desricao)
+            Map(item => item.Desricao)
                 .Column("nome_completo")
                 .Not.Nullable();
 
-            References(item => item.TipoPergunta)
+            Map(item => item.TipoPergunta)
                 .Column("tipo")
                 .Not.Nullable();
         }

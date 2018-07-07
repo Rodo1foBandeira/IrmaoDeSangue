@@ -34,9 +34,9 @@ namespace IrmaoDeSangue.Business
 
         private void ProcessarAgendamento(AgendamentoEntitie agendamento)
         {
-            agendamento.StatusProcessamento = Entities.Enumeradores.StatusProcessamentoEnum.Processando;
+            agendamento.StatusProcessamento = (int)Entities.Enumeradores.StatusProcessamentoEnum.Processando;
             
-            _agendamentoData.Atualiza(agendamento);
+            _agendamentoData.Salvar(agendamento);
 
             _doadoresBusiness.ExecutaRegraDoadorInapitoPermanente();
 
@@ -69,18 +69,21 @@ namespace IrmaoDeSangue.Business
 
                 _notificiacaoBusiness.Notificar(notificacao);                
             });
+
+            agendamento.StatusProcessamento = (int)Entities.Enumeradores.StatusProcessamentoEnum.Processado;
+            
+            _agendamentoData.Salvar(agendamento);
         }
 
         private bool IsDoacaoValidaNoPeriodo(DateTime periodoInicial, DateTime periodoFinal, DoadorEntitie doador)
         {
             bool retorno = true;
 
-            var doacoesRealizadas = _confimacaoDoacoesData.RecuperaDoacoesPorDoador(doador.Codigo);
-            doador.QuantidadeDoacoes = doacoesRealizadas.Count;
+            doador.QuantidadeDoacoes = doador.Doacoes.Count;
 
             if (doador.QuantidadeDoacoes >= 3)
             {
-                doador.QuantidadeDoacoes = doacoesRealizadas.ToList().Count(x =>
+                doador.QuantidadeDoacoes = doador.Doacoes.ToList().Count(x =>
                         x.DataConfirmacaoDoacao >= periodoInicial &&
                         x.DataConfirmacaoDoacao <= periodoFinal);
 

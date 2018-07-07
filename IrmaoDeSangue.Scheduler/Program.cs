@@ -17,8 +17,9 @@ namespace IrmaoDeSangue.Scheduler
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[] 
             { 
-                new Service1() 
+                new ServiceIrmaoDeSangue() 
             };
+
             ServiceBase.Run(ServicesToRun);
         }
     }

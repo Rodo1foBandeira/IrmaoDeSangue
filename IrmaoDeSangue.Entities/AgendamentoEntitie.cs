@@ -8,12 +8,17 @@ namespace IrmaoDeSangue.Entities
 {
     public class AgendamentoEntitie : BaseEntities
     {
-        public DateTime Data { get; set; }
+        public AgendamentoEntitie()
+        { 
 
-        public HemonucleoEntitie Hemonucleo { get; set; }
+        }
 
-        public Enumeradores.StatusProcessamentoEnum StatusProcessamento { get; set; }
+        public virtual DateTime Data { get; set; }
 
-        public int MaximoDoadores { get; set; }
+        public virtual HemonucleoEntitie Hemonucleo { get; set; }
+
+        public virtual int StatusProcessamento { get; set; }
+
+        public virtual int MaximoDoadores { get; set; }
     }
 }

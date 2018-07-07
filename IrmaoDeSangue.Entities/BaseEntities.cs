@@ -8,8 +8,8 @@ namespace IrmaoDeSangue.Entities
 {
     public class BaseEntities
     {
-        public int Codigo { get; set; }
+        public virtual int Codigo { get; set; }
 
-        public string Desricao { get; set; }
+        public virtual string Desricao { get; set; }
     }
 }

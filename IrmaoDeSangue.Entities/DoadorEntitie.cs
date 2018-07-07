@@ -13,16 +13,16 @@ namespace IrmaoDeSangue.Entities
 
         }
 
-        public string TipoSanguinio { get; set; }
+        public virtual string TipoSanguinio { get; set; }
 
-        public bool? AptoParaDoacao { get; set; }
+        public virtual bool? AptoParaDoacao { get; set; }
 
-        public float Peso { get; set; }
+        public virtual float Peso { get; set; }
 
-        public DateTime? UltimaDoacao { get; set; }
+        public virtual DateTime? UltimaDoacao { get; set; }
 
-        public IList<ConfirmacaoDoacaoEntitie> Doacoes { get; set; }
+        public virtual IList<ConfirmacaoDoacaoEntitie> Doacoes { get; set; }
 
-        public int QuantidadeDoacoes { get; set; }
+        public virtual int QuantidadeDoacoes { get; set; }
     }
 }

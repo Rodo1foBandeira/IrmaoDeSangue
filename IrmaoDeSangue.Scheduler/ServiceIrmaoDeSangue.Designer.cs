@@ -1,6 +1,6 @@
 ﻿namespace IrmaoDeSangue.Scheduler
 {
-    partial class Service1
+    partial class ServiceIrmaoDeSangue
     {
         /// <summary> 
         /// Required designer variable.
