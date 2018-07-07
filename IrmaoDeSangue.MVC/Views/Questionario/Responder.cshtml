@@ -3,8 +3,19 @@
     ViewBag.Title = "Responder";
     var cont = 0;
 }
+<style>
+    #confirmar {
+        float:right;
+    }
 
-<h2>Questionario</h2>
+    #cancelar {
+        float:right;
+        margin-right:5px;
+    }
+
+</style>
+
+<h2>Questionário</h2>
 
 @using (Html.BeginForm("ValidarRespostas", "Questionario"))
 {
@@ -34,10 +45,10 @@
     }
         </tbody>
     </table>
-
-    <div class="pull-rigth">
-        <button type="submit" class="btn btn-primary">Confirmar</button>
-        <button type="button" class="btn btn-danger">Cancelar</button>
+    
+    <div class="botao">
+        <button id="confirmar" type="submit" class="btn btn-primary">Confirmar</button>
+        <button id="cancelar" type="button" class="btn btn-danger">Cancelar</button>
     </div>
 }
     
