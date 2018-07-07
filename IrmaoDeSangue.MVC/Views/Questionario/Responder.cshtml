@@ -1,0 +1,54 @@
+﻿@model IrmaoDeSangue.MVC.Models.QuestionarioModel
+@{
+    ViewBag.Title = "Responder";
+    var cont = 0;
+}
+<style>
+    #confirmar {
+        float:right;
+    }
+
+    #cancelar {
+        float:right;
+        margin-right:5px;
+    }
+
+</style>
+
+<h2>Questionário</h2>
+
+@using (Html.BeginForm("ValidarRespostas", "Questionario"))
+{
+    @Html.HiddenFor(m => m.Pessoa.Codigo);
+    <table class="table table-responsive"> 
+        <thead>
+            <tr>
+                <th>Responda</th>
+                <th>Sim/Não</th>
+            </tr>
+        </thead>
+
+        <tbody>    
+    @foreach (var item in Model.Perguntas)
+    {
+                <tr>
+                    <td>@item.Descricao</td>
+                    <td>   
+                        <div class="btn-group">
+                            @Html.Hidden("Perguntas[" + cont + "].Codigo", item.Codigo)
+                            <label style="font-size: 1em "><input type="radio" style="width:25px" name="Perguntas[@cont].Resposta" value="true" required>Sim</label>
+                            <label style="font-size: 1em "><input type="radio" style="width:25px" name="Perguntas[@cont].Resposta" value="false" required>Não</label>
+                        </div>
+                    </td>
+                </tr>
+        cont++;
+    }
+        </tbody>
+    </table>
+    
+    <div class="botao">
+        <button id="confirmar" type="submit" class="btn btn-primary">Confirmar</button>
+        <button id="cancelar" type="button" class="btn btn-danger">Cancelar</button>
+    </div>
+}
+    

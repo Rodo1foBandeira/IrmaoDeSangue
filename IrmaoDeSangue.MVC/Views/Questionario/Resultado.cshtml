@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Resultado";
+}
+
+<h2>Resultado</h2>
+
+<div class="alert @(Model.Aprovado ? "alert-success" : "alert-danger")" role="alert">
+  <h3>@Model.NomeCompleto</h3>
+  <h3>@(Model.Aprovado ? "Aprovado" : "Reprovado")</h3>
+  <p>@Model.Alerta</p>
+</div>
