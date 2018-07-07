@@ -1,41 +1,32 @@
-﻿@Model IrmaoDeSangue.MVC.Models.QuestionarioModels
-
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
-<style>
-    table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
-
-    tr:nth-child(even) {
-        background-color: #dddddd;
-    }
-</style>
-
 <h2>Questionario</h2>
+    <table class="table table-responsive"> 
+        <thead>
+            <tr>
+                <th>Descrição</th>
+                <th></th>
+            </tr>
+        </thead>
 
+        <tbody>
 @foreach (var item in Model)
 {
-    <table>
-        <tr>
-            <th>Codigo</th>
-            <th>Descrição</th>
-            <th>Tipo</th>
-        </tr>
-        <tr>
-            <td>@item.Codigo</td>
-            <td>@item.Descricao</td>
-            <td>@item.Tipo</td>
-        </tr>
-    </table>
+            <tr>
+                <td>@item.Descricao</td>
+                <td>   
+                    <div class="btn-group">
+                        <label style="font-size: 1em "><input type="radio" style="width:25px" name="Questionario.resposta[@item.Codigo]" value="true">Sim</label>
+                        <label style="font-size: 1em "><input type="radio" style="width:25px" name="Questionario.resposta[@item.Codigo]" value="false">Não</label>
+                    </div>
+                </td>
+            </tr>
 }
+        </tbody>
+    </table>
+
+<div>
+    <button type="button" class="btn btn-outline-danger">Confirmar</button>
+</div>
