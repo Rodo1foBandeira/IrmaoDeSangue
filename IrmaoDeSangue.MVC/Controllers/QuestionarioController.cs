@@ -14,15 +14,25 @@ namespace IrmaoDeSangue.MVC.Controllers
 
         public ActionResult Index()
         {
-            var lista = new List<QuestionarioModels>();
-            lista.Add(new QuestionarioModels { Codigo = 1, Descricao = "Recentemente nos últimos 7 dias, teve crise de Asma ou bronquite leve (crises com intervalos maiores que 3 meses, compensada com medicamentos por via inalatória) ?", Tipo = 1 });
-            lista.Add(new QuestionarioModels { Codigo = 2, Descricao = "Teste2", Tipo = 1});
-            lista.Add(new QuestionarioModels { Codigo = 3, Descricao = "Teste3", Tipo = 1});
-            return View(lista);
+            return View();             
         }
 
-        public ActionResult Visualizar()
+        public ActionResult Responder(int idPessoa, string chave)
         {
+            var pessoa = new PessoaModel { Codigo = idPessoa, NomeCompleto = "Todo: pegar no banco" };
+
+            var perguntas = new List<PerguntaModel>();
+            perguntas.Add(new PerguntaModel { Codigo = 1, Descricao = "Recentemente nos últimos 7 dias, teve crise de Asma ou bronquite leve (crises com intervalos maiores que 3 meses, compensada com medicamentos por via inalatória) ?", Tipo = 1 });
+            perguntas.Add(new PerguntaModel { Codigo = 2, Descricao = "Teste2", Tipo = 1 });
+            perguntas.Add(new PerguntaModel { Codigo = 3, Descricao = "Teste3", Tipo = 1 });
+
+            var questionario = new QuestionarioModel { Pessoa = pessoa, Perguntas = perguntas };
+            return View(questionario);
+        }
+
+        public ActionResult ValidarRespostas(QuestionarioModel questionario)
+        {
+
             return View();
         }
 

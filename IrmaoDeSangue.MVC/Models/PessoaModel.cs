@@ -5,10 +5,9 @@ using System.Web;
 
 namespace IrmaoDeSangue.MVC.Models
 {
-    public class QuestionarioModels
+    public class PessoaModel
     {
         public int Codigo { get; set; }
-        public String Descricao { get; set; }
-        public int Tipo { get; set; }
+        public string NomeCompleto { get; set; }
     }
 }
