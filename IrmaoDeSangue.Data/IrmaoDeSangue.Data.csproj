@@ -66,6 +66,7 @@
     <Compile Include="Mapping\DoadorEntitieMap.cs" />
     <Compile Include="Mapping\TipoPessoaEntitieMap.cs" />
     <Compile Include="NotificacaoDoacaoData.cs" />
+    <Compile Include="PerguntaData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

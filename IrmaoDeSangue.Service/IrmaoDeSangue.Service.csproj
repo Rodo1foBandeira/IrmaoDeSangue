@@ -66,10 +66,15 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="QuestionarioService.svc" />
     <Content Include="Service1.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IQuestionarioService.cs" />
+    <Compile Include="QuestionarioService.svc.cs">
+      <DependentUpon>QuestionarioService.svc</DependentUpon>
+    </Compile>
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>
@@ -87,6 +92,16 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IrmaoDeSangue.Business\IrmaoDeSangue.Business.csproj">
+      <Project>{683c98d4-3a90-4582-a78c-dee842fa0b30}</Project>
+      <Name>IrmaoDeSangue.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IrmaoDeSangue.Entities\IrmaoDeSangue.Entities.csproj">
+      <Project>{1295cdc1-1656-4f85-b69e-04d2549bdd6d}</Project>
+      <Name>IrmaoDeSangue.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
