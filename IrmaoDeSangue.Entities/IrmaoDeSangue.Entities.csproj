@@ -41,12 +41,17 @@
   <ItemGroup>
     <Compile Include="AgendamentoEntitie.cs" />
     <Compile Include="BaseEntities.cs" />
+    <Compile Include="ConfirmacaoDoacaoEntitie.cs" />
     <Compile Include="DoadorEntitie.cs" />
+    <Compile Include="Enumeradores\SexoPessoaEnum.cs" />
     <Compile Include="Enumeradores\StatusProcessamentoEnum.cs" />
+    <Compile Include="Enumeradores\TipoPerguntaEnum.cs" />
     <Compile Include="HemonucleoEntitie.cs" />
-    <Compile Include="NotficacaoDoacaoEntitie.cs" />
+    <Compile Include="NotificacaoDoacaoEntitie.cs" />
+    <Compile Include="PerguntaEntitie.cs" />
     <Compile Include="PessoaEntitie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TipoPessoaEntitie.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

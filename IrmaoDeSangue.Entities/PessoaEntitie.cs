@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IrmaoDeSangue.Entities.Enumeradores;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,10 +16,12 @@ namespace IrmaoDeSangue.Entities
 
         public DateTime DataNascimento { get; set; }
 
-        public string Sexo { get; set; }
+        public SexoPessoaEnum Sexo { get; set; }
 
         public string EstadoCivil { get; set; }
 
         public string Email { get; set; }
+
+        public TipoPessoaEntitie TipoPessoa { get; set; }
     }
 }

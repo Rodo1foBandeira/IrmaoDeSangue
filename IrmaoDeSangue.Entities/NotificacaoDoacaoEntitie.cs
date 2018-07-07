@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IrmaoDeSangue.Entities
 {
-    public class NotficacaoDoacaoEntitie : BaseEntities
+    public class NotificacaoDoacaoEntitie : BaseEntities
     {
         public AgendamentoEntitie Agendamento { get; set; }
 
@@ -18,6 +18,6 @@ namespace IrmaoDeSangue.Entities
 
         public bool Confirmado { get; set; }
 
-        public DateTime DataConfirmacao { get; set; }
+        public DateTime? DataConfirmacao { get; set; }
     }
 }
