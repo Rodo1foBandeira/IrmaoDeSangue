@@ -12,6 +12,11 @@ namespace IrmaoDeSangue.Business
     {
         protected PerguntaData _perguntaData { get; set; }
 
+        public PerguntaBusiness()
+        {
+            _perguntaData = new PerguntaData();
+        }
+
         public IList<PerguntaEntitie> RecuperaPerguntas()
         {
             return _perguntaData.RecuperarPerguntas();

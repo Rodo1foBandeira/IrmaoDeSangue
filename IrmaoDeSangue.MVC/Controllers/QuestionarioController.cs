@@ -1,4 +1,6 @@
-﻿using IrmaoDeSangue.MVC.Models;
+﻿using IrmaoDeSangue.Business;
+using IrmaoDeSangue.Entities;
+using IrmaoDeSangue.MVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,13 +21,17 @@ namespace IrmaoDeSangue.MVC.Controllers
 
         public ActionResult Responder(int idPessoa, string chave)
         {
-            var pessoa = new PessoaModel { Codigo = idPessoa, NomeCompleto = "Todo: pegar no banco" };
+            var perguntaBuss = new PerguntaBusiness();
+            var perg = perguntaBuss.RecuperaPerguntas();
 
             var perguntas = new List<PerguntaModel>();
-            perguntas.Add(new PerguntaModel { Codigo = 1, Descricao = "Recentemente nos últimos 7 dias, teve crise de Asma ou bronquite leve (crises com intervalos maiores que 3 meses, compensada com medicamentos por via inalatória) ?", Tipo = 1 });
-            perguntas.Add(new PerguntaModel { Codigo = 2, Descricao = "Teste2", Tipo = 1 });
-            perguntas.Add(new PerguntaModel { Codigo = 3, Descricao = "Teste3", Tipo = 1 });
+            perg.ToList<PerguntaEntitie>().ForEach(x =>
+            {
+                perguntas.Add(new PerguntaModel { Codigo = x.Codigo, Descricao = x.Descricao, Tipo = (int)x.TipoPergunta });
+            });
 
+            var pessoa = new PessoaModel { Codigo = idPessoa, NomeCompleto = "Todo: pegar no banco" };
+            
             var questionario = new QuestionarioModel { Pessoa = pessoa, Perguntas = perguntas };
             return View(questionario);
         }

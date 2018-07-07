@@ -357,6 +357,16 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IrmaoDeSangue.Business\IrmaoDeSangue.Business.csproj">
+      <Project>{683c98d4-3a90-4582-a78c-dee842fa0b30}</Project>
+      <Name>IrmaoDeSangue.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IrmaoDeSangue.Entities\IrmaoDeSangue.Entities.csproj">
+      <Project>{1295cdc1-1656-4f85-b69e-04d2549bdd6d}</Project>
+      <Name>IrmaoDeSangue.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
