@@ -17,12 +17,12 @@ namespace IrmaoDeSangue.Data.Mapping
                .Column("codigo");
 
             Map(item => item.Descricao)
-                .Column("nome_completo")
-                .Not.Nullable();
+                .Column("descricao")
+                .Nullable();
 
             Map(item => item.TipoPergunta)
                 .Column("tipo")
-                .Not.Nullable();
+                .Nullable();
         }
     }
 }
