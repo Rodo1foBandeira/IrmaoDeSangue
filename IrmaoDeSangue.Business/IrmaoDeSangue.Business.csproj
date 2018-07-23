@@ -47,6 +47,8 @@
     <Compile Include="PerguntaBusiness.cs" />
     <Compile Include="ProcessarAgendamentoBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sorteio\SorteioDoadorBusiness.cs" />
+    <Compile Include="Validacao\ValidaDoadorBusiness.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IrmaoDeSangue.Data\IrmaoDeSangue.Data.csproj">

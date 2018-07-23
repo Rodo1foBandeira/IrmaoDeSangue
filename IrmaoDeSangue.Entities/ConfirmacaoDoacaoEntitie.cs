@@ -12,7 +12,7 @@ namespace IrmaoDeSangue.Entities
 
         public virtual DateTime DataEnvioSolicitacaoConfirmacao { get; set; }
 
-        public virtual DateTime DataConfirmacaoDoacao { get; set; }
+        public virtual DateTime? DataConfirmacaoDoacao { get; set; }
 
         public virtual bool? DoacaoRealizada { get; set; }
     }

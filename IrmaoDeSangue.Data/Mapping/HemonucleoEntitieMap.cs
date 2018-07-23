@@ -24,9 +24,10 @@ namespace IrmaoDeSangue.Data.Mapping
                 .Column("atendimento")
                 .Not.Nullable();
 
-            Map(item => item.Responsavel)
-                .Column("responsavel")
-                .Not.Nullable();
+            References(item => item.Responsavel)
+                .Column("codigo_pessoa_responsavel")
+                .Nullable()
+                .Not.LazyLoad();
 
             Map(item => item.Telefone)
                 .Column("telefone")
@@ -39,6 +40,9 @@ namespace IrmaoDeSangue.Data.Mapping
             Map(item => item.Site)
                 .Column("site")
                 .Not.Nullable();
+
+            HasMany(item => item.Enderecos)
+                .KeyColumn("codigo_hemonucleo");
         }
 
     }

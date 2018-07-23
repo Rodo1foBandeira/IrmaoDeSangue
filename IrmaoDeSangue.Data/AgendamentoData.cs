@@ -18,10 +18,18 @@ namespace IrmaoDeSangue.Data
 
         public IList<AgendamentoEntitie> RecuperaAgendamentosPendentes()
         {
-            var criteria = GetSession().CreateCriteria<AgendamentoEntitie>("AgendamentoEntitie");
-            criteria.Add(Restrictions.Eq("AgendamentoEntitie.StatusProcessamento", (int)StatusProcessamentoEnum.Pendente));
+            var criteria = GetSession().QueryOver<AgendamentoEntitie>()
+                .Where(x => x.StatusProcessamento == (int)StatusProcessamentoEnum.AguardandoProcessamento);            
 
             return criteria.List<AgendamentoEntitie>();
+        }
+
+        public AgendamentoEntitie RecuperaPorCodigo(int codigoAgendamento)
+        {
+            var criteria = GetSession().QueryOver<AgendamentoEntitie>()
+                .Where(x => x.Codigo == codigoAgendamento);            
+
+            return criteria.SingleOrDefault<AgendamentoEntitie>();
         }
     }
 }

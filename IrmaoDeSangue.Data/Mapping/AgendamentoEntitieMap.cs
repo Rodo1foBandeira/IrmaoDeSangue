@@ -16,6 +16,10 @@ namespace IrmaoDeSangue.Data.Mapping
             Id(item => item.Codigo)
                .Column("codigo");
 
+            Map(item => item.Descricao)
+                .Column("descricao")
+                .Not.Nullable();
+
             Map(item => item.Data)
                 .Column("data")
                 .Not.Nullable();

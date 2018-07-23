@@ -21,7 +21,9 @@ namespace IrmaoDeSangue.Data
         public IList<DoadorEntitie> RecuperaDoadoresIndefinidos()
         {
             var criteria = GetSession().QueryOver<DoadorEntitie>()
-                .Where(x => x.AptoParaDoacao == null)
+                .Where(x => 
+                    (x.AptoParaDoacaoPermanente == null || x.AptoParaDoacaoPermanente.Value) 
+                    && (x.AptoParaDoacaoTemporariamente == null || !x.AptoParaDoacaoTemporariamente.Value))                    
                 .JoinQueryOver<ConfirmacaoDoacaoEntitie>(x => x.Doacoes, JoinType.LeftOuterJoin)
                 .TransformUsing(Transformers.DistinctRootEntity);
 
@@ -30,11 +32,14 @@ namespace IrmaoDeSangue.Data
 
         public IList<DoadorEntitie> RecuperaPossiveisDoadores()
         {
-            var criteria = GetSession().CreateCriteria<DoadorEntitie>("DoadorEntitie");
-            criteria.CreateCriteria("DoadorEntitie.Doacoes", "Doacoes", JoinType.LeftOuterJoin);
-            criteria.Add(Restrictions.Eq("DoadorEntitie.AptoParaDoacao", true));
+            DoadorEntitie doadorAlias = null;
+
+            var criteria = GetSession().QueryOver<DoadorEntitie>(() => doadorAlias)
+            .Where(x => x.AptoParaDoacaoPermanente == true && x.AptoParaDoacaoTemporariamente == true)            
+            .Inner.JoinQueryOver(() => doadorAlias.Enderecos)
+            .Left.JoinQueryOver(() => doadorAlias.Doacoes);
 
             return criteria.List<DoadorEntitie>();
-        }
+        }        
     }
 }

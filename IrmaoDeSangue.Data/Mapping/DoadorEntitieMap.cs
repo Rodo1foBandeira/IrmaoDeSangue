@@ -7,46 +7,23 @@ using System.Threading.Tasks;
 
 namespace IrmaoDeSangue.Data.Mapping
 {
-    public class DoadorEntitieMap : FluentNHibernate.Mapping.ClassMap<DoadorEntitie>
+    public class DoadorEntitieMap : FluentNHibernate.Mapping.SubclassMap<DoadorEntitie>
     {
-        public DoadorEntitieMap()
+        public DoadorEntitieMap()            
         {
-            Table("tbPessoa");
+            Table("tbDoador");
 
-            Id(item => item.Codigo)
-               .Column("codigo");
-
-            Map(item => item.Descricao)
-                .Column("nome_completo")
-                .Not.Nullable();
-
-            Map(item => item.DataNascimento)
-                .Column("data_nascimento")
-                .Not.Nullable();
-
-            Map(item => item.Sexo)
-                .Column("sexo")
-                .Not.Nullable();
-
-            Map(item => item.EstadoCivil)
-                .Column("estado_civil")
-                .Not.Nullable();
+            KeyColumn("codigo");
 
             Map(item => item.TipoSanguinio)
                 .Column("tipo_sanguineo")
                 .Not.Nullable();
 
-            Map(item => item.Email)
-                .Column("email")
-                .Not.Nullable();
+            Map(item => item.AptoParaDoacaoPermanente)
+                .Column("apto_doacao_permanente");
 
-            Map(item => item.AptoParaDoacao)
-                .Column("apto_doacao");
-
-            References(item => item.TipoPessoa)
-                .Column("codigo_tipo_pessoa")
-                .Nullable()
-                .Not.LazyLoad();
+            Map(item => item.AptoParaDoacaoTemporariamente)
+                .Column("apto_doacao_temporariamente");
 
             Map(item => item.Peso)
                 .Column("peso");

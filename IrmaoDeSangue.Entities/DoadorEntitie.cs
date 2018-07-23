@@ -15,7 +15,9 @@ namespace IrmaoDeSangue.Entities
 
         public virtual string TipoSanguinio { get; set; }
 
-        public virtual bool? AptoParaDoacao { get; set; }
+        public virtual bool? AptoParaDoacaoPermanente { get; set; }
+
+        public virtual bool? AptoParaDoacaoTemporariamente { get; set; }
 
         public virtual float Peso { get; set; }
 
@@ -24,5 +26,7 @@ namespace IrmaoDeSangue.Entities
         public virtual ICollection<ConfirmacaoDoacaoEntitie> Doacoes { get; set; }
 
         public virtual int QuantidadeDoacoes { get; set; }
+
+        public virtual int ChaveSorteio { get; set; }
     }
 }

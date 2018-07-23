@@ -8,8 +8,9 @@ namespace IrmaoDeSangue.Entities.Enumeradores
 {
     public enum StatusProcessamentoEnum
     {        
-        Pendente = 1,
+        AguardandoProcessamento = 1,
         Processando = 2,
-        Processado = 3
+        ProcessadoComSucesso = 3,
+        ProcessadoComErro = 4
     }
 }

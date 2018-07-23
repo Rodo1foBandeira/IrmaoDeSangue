@@ -8,7 +8,7 @@ namespace IrmaoDeSangue.Entities.Enumeradores
 {
     public enum SexoPessoaEnum
     {
-        Feminino = 1,
-        Masculino = 2
+        F,
+        M
     }
 }

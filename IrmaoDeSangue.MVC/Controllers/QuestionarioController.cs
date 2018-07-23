@@ -16,11 +16,18 @@ namespace IrmaoDeSangue.MVC.Controllers
 
         public ActionResult Index()
         {
-            return View();             
+            return View();
         }
 
         public ActionResult Responder(int idPessoa, string chave)
         {
+            var notificacao = RecuperarNotificacao(idPessoa, chave);
+
+            if (notificacao == null)
+            {
+                return Redirect("~/Home");
+            }
+
             var perguntaBuss = new PerguntaBusiness();
             var perg = perguntaBuss.RecuperaPerguntas();
 
@@ -30,7 +37,7 @@ namespace IrmaoDeSangue.MVC.Controllers
                 perguntas.Add(new PerguntaModel { Codigo = x.Codigo, Descricao = x.Descricao, Tipo = (int)x.TipoPergunta });
             });
 
-            var pessoa = new PessoaModel { Codigo = idPessoa, NomeCompleto = "Todo: pegar no banco" };
+            var pessoa = new PessoaModel { Codigo = idPessoa, NomeCompleto = notificacao.Doador.Descricao };
             
             var questionario = new QuestionarioModel { Pessoa = pessoa, Perguntas = perguntas };
             return View(questionario);
@@ -41,6 +48,15 @@ namespace IrmaoDeSangue.MVC.Controllers
             questionario.Pessoa.NomeCompleto = "Fulano de tal";
             questionario.Pessoa.Aprovado = true;
             return View("~/Views/Questionario/Resultado.cshtml", questionario.Pessoa);            
+        }
+
+        private NotificacaoDoacaoEntitie RecuperarNotificacao(int codigoPessoa, string chaveAutenticacao)
+        {
+            var notificacaoBusiness = new NotificacaoBusiness();
+
+            var notificacaoDoador = notificacaoBusiness.RecuperaPorCodigoEChaveAutenticacao(codigoPessoa, chaveAutenticacao);
+
+            return notificacaoDoador;            
         }
     }
 }

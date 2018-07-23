@@ -10,11 +10,11 @@ namespace IrmaoDeSangue.Entities
     public class PessoaEntitie : BaseEntities
     {
         public PessoaEntitie()
-        { 
+        {
 
         }
 
-        public virtual DateTime DataNascimento { get; set; }
+        public virtual DateTime? DataNascimento { get; set; }
 
         public virtual SexoPessoaEnum Sexo { get; set; }
 
@@ -23,5 +23,9 @@ namespace IrmaoDeSangue.Entities
         public virtual string Email { get; set; }
 
         public virtual TipoPessoaEntitie TipoPessoa { get; set; }
+
+        public virtual string Telefone { get; set; }
+
+        public virtual ICollection<EnderecoEntitie> Enderecos { get; set; }
     }
 }

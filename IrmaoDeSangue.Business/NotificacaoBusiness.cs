@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IrmaoDeSangue.IBusiness
+namespace IrmaoDeSangue.Business
 {
     public class NotificacaoBusiness
     {
@@ -30,6 +30,11 @@ namespace IrmaoDeSangue.IBusiness
         private void Salvar(NotificacaoDoacaoEntitie notificacao)
         {
             _notificacaoDoacaoData.Salvar(notificacao);
+        }
+
+        public NotificacaoDoacaoEntitie RecuperaPorCodigoEChaveAutenticacao(int codigo, string chaveAutenticacao)
+        {
+            return _notificacaoDoacaoData.RecuperaPorCodigoEChaveAutenticacao(codigo, chaveAutenticacao);
         }
     }
 }

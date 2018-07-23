@@ -43,6 +43,7 @@
     <Compile Include="BaseEntities.cs" />
     <Compile Include="ConfirmacaoDoacaoEntitie.cs" />
     <Compile Include="DoadorEntitie.cs" />
+    <Compile Include="EnderecoEntitie.cs" />
     <Compile Include="Enumeradores\SexoPessoaEnum.cs" />
     <Compile Include="Enumeradores\StatusProcessamentoEnum.cs" />
     <Compile Include="Enumeradores\TipoPerguntaEnum.cs" />

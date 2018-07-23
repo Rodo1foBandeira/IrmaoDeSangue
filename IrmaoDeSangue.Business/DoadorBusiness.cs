@@ -1,6 +1,6 @@
 ﻿using IrmaoDeSangue.Data;
 using IrmaoDeSangue.Entities;
-using IrmaoDeSangue.IBusiness;
+using IrmaoDeSangue.Business;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,25 +36,16 @@ namespace IrmaoDeSangue.Business
             });
         }
 
-        public void ExecutaRegraDoadorInapitoPermanente()
+        public void ExecutaRegrasDoadorAptoInapito(AgendamentoEntitie agendamento)
         {
             var listaDoadoresIndefinido = _doadorData.RecuperaDoadoresIndefinidos();
 
             listaDoadoresIndefinido.ToList().ForEach(doador => {
-                doador.AptoParaDoacao = IsDoadorApto(doador.DataNascimento, doador.Peso);
+                doador.AptoParaDoacaoTemporariamente = Validacao.ValidaDoadorBusiness.IsDoadorValidoTemporariamente(agendamento, doador);
+                doador.AptoParaDoacaoPermanente = Validacao.ValidaDoadorBusiness.IsDoadorValidoPermanentemente(doador);
             });
 
             AtualizaDadosDoadores(listaDoadoresIndefinido.ToList());
-        }
-
-        private bool? IsDoadorApto(DateTime dataNascimento, float peso)
-        {
-            var retorno = true;
-
-            if (DateTime.Now.Subtract(dataNascimento).Days < (365*18) || peso < 50)
-                return false;
-
-            return retorno;
         }
     }
 }

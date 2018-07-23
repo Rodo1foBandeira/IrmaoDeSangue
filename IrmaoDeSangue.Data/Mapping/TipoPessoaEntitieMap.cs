@@ -17,7 +17,7 @@ namespace IrmaoDeSangue.Data.Mapping
                .Column("codigo");
 
             Map(item => item.Descricao)
-                .Column("tipo_pessoa")
+                .Column("descricao")
                 .Not.Nullable();
 
         }

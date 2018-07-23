@@ -27,7 +27,17 @@ namespace IrmaoDeSangue.Business
             return _agendamentoData.RecuperaAgendamentosPendentes();
         }
 
+        public AgendamentoEntitie RecuperaPorCodigo(int codigoAgendamento)
+        {
+            return _agendamentoData.RecuperaPorCodigo(codigoAgendamento);
+        }
+
         public void Atualiza(AgendamentoEntitie agendamentoEntitie)
+        {
+            _agendamentoData.Salvar(agendamentoEntitie);
+        }
+
+        public void Salvar(AgendamentoEntitie agendamentoEntitie)
         {
             _agendamentoData.Salvar(agendamentoEntitie);
         }
