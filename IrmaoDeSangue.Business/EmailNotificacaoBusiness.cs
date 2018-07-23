@@ -28,8 +28,6 @@ namespace IrmaoDeSangue.Business
                 Body = corpoEmail
             };
 
-            notificacao.Doador.Email = "anderson.pinheiro@castgroup.com.br";
-
             mail.To.Add(notificacao.Doador.Email);
 
             var smtp = new SmtpClient
@@ -39,8 +37,8 @@ namespace IrmaoDeSangue.Business
                 EnableSsl = true,
                 Credentials = new System.Net.NetworkCredential 
                 {
-                    UserName = "anderson.luiz.pinheiro@gmail.com",
-                    Password = "alp@576879"                    
+                    UserName = "",
+                    Password = ""                    
                 }
             };
 
