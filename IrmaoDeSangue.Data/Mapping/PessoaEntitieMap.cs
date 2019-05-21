@@ -45,8 +45,8 @@ namespace IrmaoDeSangue.Data.Mapping
                 .Nullable()
                 .Not.LazyLoad();
 
-            HasMany(item => item.Enderecos)
-                .KeyColumn("codigo_pessoa");
+            /*HasMany(item => item.Enderecos)
+                .KeyColumn("codigo_pessoa");*/
         }
     }
 }
